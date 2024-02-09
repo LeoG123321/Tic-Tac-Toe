@@ -36,9 +36,7 @@ int main()
 }															//End Program
 
 void board() {		//Displays The Current Board
-
 	//Creating the board in quotes, shifting it over to the right using setw(), and printing it out using cout commands
-
 	cout << "\n";
 	cout << setw(70) << " _______________________ \n";
 	cout << setw(70) << "|       |       |       |\n";
@@ -51,22 +49,14 @@ void board() {		//Displays The Current Board
 	cout << setw(48) << "|   " << seven << "   |   " << eight << "   |   " << nine << "   |\n";
 	cout << setw(70) << "|_______|_______|_______|\n";
 	cout << "\n";
-
 }
 
 void playerChoice(string choice) {	//Has the player choose the position of their X or O
-
 	string num;
 
 tryAgain:
 
-	if (choice == "X") {			//Displays if it's player 1 or player 2s turn
-		cout << "Player 1: X" << endl;
-	}
-	else {
-		cout << "Player 2: O" << endl;
-	}
-
+	cout << "Player " << choice << ":" << endl;
 	cout << "Choose Your Location" << endl;
 	cin >> num;
 
@@ -76,42 +66,34 @@ tryAgain:
 		board();
 	}
 	else if (num == two) {
-
 		two = choice;
 		board();
 	}
 	else if (num == three) {
-
 		three = choice;
 		board();
 	}
 	else if (num == four) {
-
 		four = choice;
 		board();
 	}
 	else if (num == five) {
-
 		five = choice;
 		board();
 	}
 	else if (num == six) {
-
 		six = choice;
 		board();
 	}
 	else if (num == seven) {
-
 		seven = choice;
 		board();
 	}
 	else if (num == eight) {
-
 		eight = choice;
 		board();
 	}
 	else if (num == nine) {
-
 		nine = choice;
 		board();
 	}
@@ -158,12 +140,6 @@ void gameFinish() {		//Checks every win condition to see if anyone has won
 		winner = three;
 	}
 
-	if (win == true) {		//If someone has won, it finds out who won, and displays them a winner
-		if (winner == "X") {
-			cout << "Player 1 Wins!" << endl;
-		}
-		else {
-			cout << "Player 2 Wins!" << endl;
-		}
-	}
+	if (win == true)
+		cout << "Player " << winner << " Wins!" << endl;
 }
