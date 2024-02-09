@@ -12,12 +12,18 @@ using namespace std;	//Allows use of cout without std ::
 void board();				//Displays The Current Board
 void playerChoice(string);	//Has the player choose the position of their X or O
 void gameFinish();			//Checks if Either player has won
+void gameRun();
 
 string one{ "1" }, two{ "2" }, three{ "3" }, four{ "4" }, five{ "5" }, six{ "6" }, seven{ "7" }, eight{ "8" }, nine{ "9" };	//Variables
 bool win = false;	//flag if anyone has won
 
 int main()
 {															//Start Program
+	gameRun();
+	return 0;
+}				
+
+void gameRun() {
 	board();
 
 	for (int i = 0; i < 9; i++) {
@@ -29,11 +35,13 @@ int main()
 		}
 		gameFinish();
 		if (win)
-			break;
+			return;
 	}
 	if (!win)
 		cout << "Game Over: Draw" << endl;
-}															//End Program
+}
+
+										//End Program
 
 void board() {		//Displays The Current Board
 	//Creating the board in quotes, shifting it over to the right using setw(), and printing it out using cout commands
