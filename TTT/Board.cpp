@@ -1,16 +1,17 @@
 #include "Board.h"
-class Board
-{
-private:
-	string one, two, three, four, five, six, seven, eight, nine;
 
-public:
-	Board::Board() {
+Board::Board() {
 
-	}
+}
 
-	void displayBoard();
+void Board::displayBoard() {
 
-	void getCell(int);
-	void setCell(int, char);
-};
+}
+
+void Board::getCell(int) {
+
+}
+
+void Board::setCell(int, char) {
+
+}
