@@ -11,11 +11,10 @@ using namespace std;	//Allows use of cout without std ::
 
 void board();				//Displays The Current Board
 void playerChoice(string);	//Has the player choose the position of their X or O
-void gameFinish();			//Checks if Either player has won
+bool gameFinish();			//Checks if Either player has won
 void gameRun();
 
 string one{ "1" }, two{ "2" }, three{ "3" }, four{ "4" }, five{ "5" }, six{ "6" }, seven{ "7" }, eight{ "8" }, nine{ "9" };	//Variables
-bool win = false;	//flag if anyone has won
 
 int main()
 {															//Start Program
@@ -25,7 +24,7 @@ int main()
 
 void gameRun() {
 	board();
-
+	bool win = false;
 	for (int i = 0; i < 9; i++) {
 		if (i % 2 == 0) {
 			playerChoice("X");
@@ -33,7 +32,7 @@ void gameRun() {
 		else {
 			playerChoice("O");
 		}
-		gameFinish();
+		win = gameFinish();
 		if (win)
 			return;
 	}
@@ -111,9 +110,10 @@ tryAgain:
 	}
 }
 
-void gameFinish() {		//Checks every win condition to see if anyone has won
+bool gameFinish() {		//Checks every win condition to see if anyone has won
 
 	string winner;
+	bool win = false;
 
 	if (one == two && two == three) {
 		win = true;
@@ -150,4 +150,5 @@ void gameFinish() {		//Checks every win condition to see if anyone has won
 
 	if (win == true)
 		cout << "Player " << winner << " Wins!" << endl;
+	return win;
 }
