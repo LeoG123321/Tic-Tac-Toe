@@ -1,11 +1,7 @@
 /*
-Leonardo Gonzalez		8/26/23
+Leonardo Gonzalez		2/8/2024
 
-Lab	4					Tic-Tac-Toe
-
-Objective: Create a Function playerChoice( )
-
-Commands: playerChoice(string), board(), gameFinish()
+Week 4					Tic-Tac-Toe
 */
 
 #include <ios>			//Interprets iostream
@@ -22,36 +18,21 @@ bool win = false;	//flag if anyone has won
 
 int main()
 {															//Start Program
+	board();
 
-	board(); 
-
-	playerChoice("X");	//Player 1 starts
-	playerChoice("O");
-	playerChoice("X");
-	playerChoice("O");
-	playerChoice("X");
-	gameFinish();
-	if (!win) {				//Checks if someone has won, if not, continue the game
-		playerChoice("O");
-		gameFinish();
-		if (!win) {
+	for (int i = 0; i < 9; i++) {
+		if (i % 2 == 0) {
 			playerChoice("X");
-			gameFinish();
-			if (!win) {
-				playerChoice("O");
-				gameFinish();
-				if (!win) {
-					playerChoice("X");
-					gameFinish();
-					if (!win) {
-						cout << "Game Over: Draw" << endl;	//After every position has been filled, and no one has one, it is a tie.
-					}
-				}
-			}
 		}
+		else {
+			playerChoice("O");
+		}
+		gameFinish();
+		if (win)
+			break;
 	}
-
-
+	if (!win)
+		cout << "Game Over: Draw" << endl;
 }															//End Program
 
 void board() {		//Displays The Current Board
@@ -74,10 +55,10 @@ void board() {		//Displays The Current Board
 }
 
 void playerChoice(string choice) {	//Has the player choose the position of their X or O
-	
+
 	string num;
 
-	tryAgain:
+tryAgain:
 
 	if (choice == "X") {			//Displays if it's player 1 or player 2s turn
 		cout << "Player 1: X" << endl;
@@ -90,7 +71,7 @@ void playerChoice(string choice) {	//Has the player choose the position of their
 	cin >> num;
 
 	if (num == one) {					//After the player chooses the position they would like their X or O
-										//Checks if that spot is open. If open, replace that position with an X or an O, and Display the Board
+		//Checks if that spot is open. If open, replace that position with an X or an O, and Display the Board
 		one = choice;
 		board();
 	}
@@ -141,7 +122,7 @@ void playerChoice(string choice) {	//Has the player choose the position of their
 }
 
 void gameFinish() {		//Checks every win condition to see if anyone has won
-	
+
 	string winner;
 
 	if (one == two && two == three) {
