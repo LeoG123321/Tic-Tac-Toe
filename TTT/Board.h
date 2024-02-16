@@ -3,14 +3,14 @@ using namespace std;
 class Board
 {
 private:
-	string one, two, three, four, five, six, seven, eight, nine;
+	string cells[10];
 
 public:
 	Board();
 	
 	void displayBoard();
 
-	void getCell(int);
+	string getCell(int);
 	void setCell(int, char);
 };
 
