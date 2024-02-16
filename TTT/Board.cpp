@@ -3,15 +3,15 @@
 #include <iomanip>
 
 Board::Board() {
-	cells[1] = "1";
-	cells[2] = "2";
-	cells[3] = "3";
-	cells[4] = "4";
-	cells[5] = "5";
-	cells[6] = "6";
-	cells[7] = "7";
-	cells[8] = "8";
-	cells[9] = "9";
+	cells[1] = '1';
+	cells[2] = '2';
+	cells[3] = '3';
+	cells[4] = '4';
+	cells[5] = '5';
+	cells[6] = '6';
+	cells[7] = '7';
+	cells[8] = '8';
+	cells[9] = '9';
 }
 
 void Board::displayBoard() {
@@ -30,7 +30,7 @@ void Board::displayBoard() {
 	cout << "\n";
 }
 
-string Board::getCell(int cell) {
+char Board::getCell(int cell) {
 	return cells[cell];
 }
 
