@@ -1,0 +1,89 @@
+#include "Gameplay.h"
+
+Gameplay::Gameplay() {
+	turn = 0;
+}
+
+void Gameplay::gameRun() {
+	bool win = false;
+	board.displayBoard();
+	for (int i = 0; i < 9; i++) {
+		if (turn % 2 == 0)
+			playerInput('X');
+		else
+			playerInput('O');
+		win = playerWin();
+		if (win)
+			return;
+	}
+	if (!win)
+		cout << "Game Over: Draw" << endl;
+}
+
+void Gameplay::playerInput(char input) {
+	int num;
+
+tryAgain:
+
+	cout << "Player " << input << ":" << endl;
+	cout << "Choose Your Location" << endl;
+	cin >> num;
+
+	if (num > 0 && num < 10) {
+		if (board.getCell(num) != 'X' && board.getCell(num) != 'O') {
+			board.setCell(num, input);
+		}
+		else {
+			cout << "Error, Try Again\n" << endl;
+			goto tryAgain;
+		}
+	}
+	else {
+		cout << "Error, Try Again\n" << endl;
+		goto tryAgain;
+	}
+
+	board.displayBoard();
+}
+
+bool Gameplay::playerWin() {
+	char winner;
+	bool win = false;
+
+	if (board.getCell(1) == board.getCell(2) && board.getCell(2) == board.getCell(3)) {
+		win = true;
+		winner = board.getCell(1);
+	}
+	else if (board.getCell(4) == board.getCell(5) && board.getCell(5) == board.getCell(6)) {
+		win = true;
+		winner = board.getCell(4);
+	}
+	else if (board.getCell(7) == board.getCell(8) && board.getCell(8) == board.getCell(9)) {
+		win = true;
+		winner = board.getCell(7);
+	}
+	else if (board.getCell(1) == board.getCell(5) && board.getCell(5) == board.getCell(9)) {
+		win = true;
+		winner = board.getCell(1);
+	}
+	else if (board.getCell(3) == board.getCell(5) && board.getCell(5) == board.getCell(7)) {
+		win = true;
+		winner = board.getCell(3);
+	}
+	else if (board.getCell(1) == board.getCell(4) && board.getCell(4) == board.getCell(7)) {
+		win = true;
+		winner = board.getCell(1);
+	}
+	else if (board.getCell(2) == board.getCell(5) && board.getCell(5) == board.getCell(8)) {
+		win = true;
+		winner = board.getCell(2);
+	}
+	else if (board.getCell(3) == board.getCell(6) && board.getCell(6) == board.getCell(9)) {
+		win = true;
+		winner = board.getCell(3);
+	}
+
+	if (win == true)
+		cout << "Player " << winner << " Wins!" << endl;
+	return win;
+}
