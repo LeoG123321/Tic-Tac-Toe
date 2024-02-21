@@ -1,8 +1,7 @@
-#include "Board.cpp"
+#include "Board.h"
 class Gameplay
 {
 private:
-	int turn;
 	Board board;
 
 public:
