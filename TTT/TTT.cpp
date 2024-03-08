@@ -1,11 +1,7 @@
-/*
-Leonardo Gonzalez		2/8/2024
+#include "Gameplay.h"  
+#include <iomanip>
+#include <iostream>
 
-Week 4					Tic-Tac-Toe
-*/
-
-#include <iostream>	
-#include "Gameplay.h"
 using namespace std;	
 
 int main()

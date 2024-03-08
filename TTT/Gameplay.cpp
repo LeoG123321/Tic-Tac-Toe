@@ -1,14 +1,17 @@
 #include "Gameplay.h"
+#include <iostream>
+
+using namespace std;
 
 Gameplay::Gameplay() {
-	turn = 0;
+	return;
 }
 
 void Gameplay::gameRun() {
 	bool win = false;
 	board.displayBoard();
 	for (int i = 0; i < 9; i++) {
-		if (turn % 2 == 0)
+		if (i % 2 == 0)
 			playerInput('X');
 		else
 			playerInput('O');
@@ -34,12 +37,15 @@ tryAgain:
 			board.setCell(num, input);
 		}
 		else {
-			cout << "Error, Try Again\n" << endl;
+			cout << "Error, Location Already Taken. Try Again\n" << endl;
 			goto tryAgain;
 		}
 	}
 	else {
-		cout << "Error, Try Again\n" << endl;
+		if (num > 9)
+			cout << "Error, Location Input Greater Than '9'. Try Again\n" << endl;
+		else
+			cout << "Error, Location Input Less Than '1'. Try Again\n" << endl;
 		goto tryAgain;
 	}
 
