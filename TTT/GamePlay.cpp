@@ -4,7 +4,7 @@
 using namespace std;
 
 Gameplay::Gameplay() {
-	
+	return;
 }
 
 void Gameplay::gameRun() {
